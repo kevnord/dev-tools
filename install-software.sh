@@ -24,8 +24,8 @@ sudo rm google-chrome-stable_current_amd64.deb
 
 sudo wget https://download.visualstudio.microsoft.com/download/pr/647f8505-3bf0-48c5-ac0f-3839be6816d7/d0c2762ded5a1ded3c79b1e495e43b7c/dotnet-sdk-2.2.203-linux-x64.tar.gz
 mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-2.2.203-linux-x64.tar.gz -C $HOME/dotnet
-export DOTNET_ROOT=$HOME/dotnet
-export PATH=$PATH:$HOME/dotnet
+echo export DOTNET_ROOT=$HOME/dotnet >> ~/.bashrc
+echo export PATH=$PATH:$HOME/dotnet >> ~/.bashrc
 sudo rm dotnet*
 
 # sudo snap install dotnet-sdk --classic
