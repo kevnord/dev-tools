@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo apt install git
 sudo snap install slack --classic
 sudo snap install code-insiders --classic
 sudo snap install code --classic
