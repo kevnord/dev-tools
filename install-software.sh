@@ -1,5 +1,10 @@
 #!/bin/bash
+sudo apt update 
 sudo apt install git
+git config --global user.email "kevnord@gmail.com"
+git config --global user.name "Kevin Nord"
+
+
 sudo snap install slack --classic
 sudo snap install code-insiders --classic
 sudo snap install code --classic
