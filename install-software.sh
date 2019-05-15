@@ -11,10 +11,16 @@ sudo snap install slack --classic
 sudo snap install code-insiders --classic
 sudo snap install code --classic
 sudo snap install postman
-sudo snap install docker
+
+# install docker. Must use test channel for 19.04
+curl -fsSL get.docker.com | CHANNEL=test sh
+# sudo groupadd docker
+# sudo usermod -aG docker $USER
+
 sudo snap install gitkraken
 sudo snap install gimp
 
+# install chrome
 if ! [ -e google-chrome-stable_current_amd64.deb ]
 then
     sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -22,10 +28,9 @@ fi
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo rm google-chrome-stable_current_amd64.deb
 
+# install dotnet core
 sudo wget https://download.visualstudio.microsoft.com/download/pr/647f8505-3bf0-48c5-ac0f-3839be6816d7/d0c2762ded5a1ded3c79b1e495e43b7c/dotnet-sdk-2.2.203-linux-x64.tar.gz
 mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-2.2.203-linux-x64.tar.gz -C $HOME/dotnet
 echo export DOTNET_ROOT=$HOME/dotnet >> ~/.bashrc
 echo export PATH=$PATH:$HOME/dotnet >> ~/.bashrc
 sudo rm dotnet*
-
-# sudo snap install dotnet-sdk --classic
