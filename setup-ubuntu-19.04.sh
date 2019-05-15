@@ -8,14 +8,12 @@ sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool
 
 sudo snap install slack --classic
-sudo snap install code-insiders --classic
 sudo snap install code --classic
+sudo snap install code-insiders --classic
 sudo snap install postman
 
 # install docker. Must use test channel for 19.04
 curl -fsSL get.docker.com | CHANNEL=test sh
-# sudo groupadd docker
-# sudo usermod -aG docker $USER
 
 sudo snap install gitkraken
 sudo snap install gimp
