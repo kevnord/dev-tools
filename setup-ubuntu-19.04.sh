@@ -32,3 +32,9 @@ mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-2.2.203-linux-x64.tar.gz -C $HOME/do
 echo export DOTNET_ROOT=$HOME/dotnet >> ~/.bashrc
 echo export PATH=$PATH:$HOME/dotnet >> ~/.bashrc
 sudo rm dotnet*
+
+echo # Add branch name to prompt >> ~/.bashrc
+echo parse_git_branch() {  >> ~/.bashrc
+echo    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' >> ~/.bashrc
+echo } >> ~/.bashrc
+echo export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ " >> ~/.bashrc
