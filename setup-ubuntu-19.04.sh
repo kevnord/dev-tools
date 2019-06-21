@@ -2,7 +2,7 @@
 echo -e "# \e[92mUpdating apt\033[0m"
 sudo apt update 
 echo -e "# \e[92mInstalling and configuring git\033[0m"
-sudo apt install--yes git
+sudo apt install --yes git
 git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
 
@@ -51,3 +51,5 @@ if ! grep -q "parse_git_branch()" ~/.bashrc; then
     echo "export PS1='\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ '" >> ~/.bashrc
 fi
 
+chmod 700 ~/.ssh/*
+chmod 644 ~/.ssh/*.pub
