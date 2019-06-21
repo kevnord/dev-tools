@@ -51,5 +51,11 @@ if ! grep -q "parse_git_branch()" ~/.bashrc; then
     echo "export PS1='\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ '" >> ~/.bashrc
 fi
 
-chmod 700 ~/.ssh/*
+echo -e "# \e[92mAll all ssh keys to agent\033[0m" 
+chmod 700 ~/.ssh/*chmod 700 ~/.ssh/*
 chmod 644 ~/.ssh/*.pub
+for possiblekey in ${HOME}/.ssh/*; do
+    if grep -q PRIVATE "$possiblekey"; then
+        ssh-add "$possiblekey"
+    fi
+done
