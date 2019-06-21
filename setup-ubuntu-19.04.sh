@@ -5,7 +5,7 @@ git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
 
 sudo add-apt-repository universe
-sudo apt install gnome-tweak-tool
+sudo apt install gnome-tweak-tool -y
 
 sudo snap install slack --classic
 sudo snap install code --classic
