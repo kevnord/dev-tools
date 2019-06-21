@@ -1,29 +1,29 @@
 #!/bin/bash
-echo "# Updating apt" -e "Default \e[92mLight green"
+echo "# \e[92mUpdating apt"
 sudo apt update 
-echo "# Installing and configuring git" -e "Default \e[92mLight green"
-sudo apt install git
+echo -e "# \e[92mInstalling and configuring git"
+sudo apt install git -y
 git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
 
-echo "# Installing Ubuntu tools" -e "Default \e[92mLight green"
+echo "# Installing Ubuntu tools" 
 sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool -y
 
-echo "# Installing slack, code, and postman" -e "Default \e[92mLight green"
+echo "# Installing slack, code, and postman"
 sudo snap install slack --classic
 sudo snap install code --classic
 sudo snap install code-insiders --classic
 sudo snap install postman
 
-echo "# install docker. Must use test channel for 19.04" -e "Default \e[92mLight green"
+echo "# install docker. Must use test channel for 19.04"
 curl -fsSL get.docker.com | CHANNEL=test sh
 
-echo "# install gitkraken and gimp" -e "Default \e[92mLight green"
+echo "# install gitkraken and gimp"
 sudo snap install gitkraken
 sudo snap install gimp
 
-echo "# install chrome" -e "Default \e[92mLight green"
+echo "# install chrome" 
 if ! [ -e google-chrome-stable_current_amd64.deb ]
 then
     sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -31,7 +31,7 @@ fi
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo rm google-chrome-stable_current_amd64.deb
 
-echo "# install dotnet core" -e "Default \e[92mLight green"
+echo "# install dotnet core" 
 wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 
