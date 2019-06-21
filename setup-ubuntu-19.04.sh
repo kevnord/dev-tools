@@ -9,6 +9,7 @@ git config --global user.name "Kevin Nord"
 echo -e "# \e[92mInstalling Ubuntu tools\033[0m" 
 sudo add-apt-repository universe
 sudo apt install gnome-tweak-tool -y
+sudo apt-get install xclip -y
 
 echo -e "# \e[92mInstalling slack, code, and postman\033[0m"
 sudo snap install slack --classic
@@ -18,6 +19,7 @@ sudo snap install postman
 
 echo -e "# \e[92minstall docker. Must use test channel for 19.04\033[0m"
 curl -fsSL get.docker.com | CHANNEL=test sh
+sudo usermod -aG docker $USER
 
 echo -e "# \e[92minstall gitkraken and gimp\033[0m"
 sudo snap install gitkraken
@@ -39,8 +41,13 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install dotnet-sdk-2.2
 
-echo -e "# \e[92mAdd branch name to prompt >> ~/.bashrc\033[0m"
-echo "parse_git_branch() {"  >> ~/.bashrc
-echo "   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'" >> ~/.bashrc
-echo "}" >> ~/.bashrc
-echo "export PS1='\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ '" >> ~/.bashrc
+
+if ! grep -q "parse_git_branch()" ~/.bashrc; then
+    echo -e "# \e[92mAdd branch to prompt when in git folders\033[0m"
+    echo "# Add branch name to prompt" >> ~/.bashrc
+    echo "parse_git_branch() {"  >> ~/.bashrc
+    echo "   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'" >> ~/.bashrc
+    echo "}" >> ~/.bashrc
+    echo "export PS1='\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ '" >> ~/.bashrc
+fi
+
