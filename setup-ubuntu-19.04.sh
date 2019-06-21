@@ -27,11 +27,18 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo rm google-chrome-stable_current_amd64.deb
 
 # install dotnet core
-sudo wget https://download.visualstudio.microsoft.com/download/pr/647f8505-3bf0-48c5-ac0f-3839be6816d7/d0c2762ded5a1ded3c79b1e495e43b7c/dotnet-sdk-2.2.203-linux-x64.tar.gz
-mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-2.2.203-linux-x64.tar.gz -C $HOME/dotnet
-echo export DOTNET_ROOT=$HOME/dotnet >> ~/.bashrc
-echo export PATH=$PATH:$HOME/dotnet >> ~/.bashrc
-sudo rm dotnet*
+wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+
+sudo apt-get install apt-transport-https
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.2
+
+# sudo wget https://download.visualstudio.microsoft.com/download/pr/647f8505-3bf0-48c5-ac0f-3839be6816d7/d0c2762ded5a1ded3c79b1e495e43b7c/dotnet-sdk-2.2.203-linux-x64.tar.gz
+# mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-2.2.203-linux-x64.tar.gz -C $HOME/dotnet
+# echo export DOTNET_ROOT=$HOME/dotnet >> ~/.bashrc
+# echo export PATH=$PATH:$HOME/dotnet >> ~/.bashrc
+#sudo rm dotnet*
 
 echo # Add branch name to prompt >> ~/.bashrc
 echo parse_git_branch() {  >> ~/.bashrc
