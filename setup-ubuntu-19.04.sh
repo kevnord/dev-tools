@@ -1,8 +1,8 @@
 #!/bin/bash
-echo "# \e[92mUpdating apt"
+echo "# \033[0;31mUpdating apt"
 sudo apt update 
 echo -e "# \e[92mInstalling and configuring git"
-sudo apt install git -y
+sudo apt install--yes git
 git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
 
