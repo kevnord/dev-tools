@@ -14,20 +14,12 @@ sudo apt-get install xclip -y
 echo -e "# \e[92mInstalling slack, code, and postman\033[0m"
 sudo snap install code --classic
 code --install-extension ms-vscode.csharp --force
+code --install-extension ms-vscode-remote.remote-containers --force
 code --install-extension dbaeumer.vscode-eslint --force
 code --install-extension eamodio.gitlens --force
 code --install-extension mhutchie.git-graph --force
 code --install-extension ms-azuretools.vscode-docker --force
 code --install-extension felixfbecker.php-debug --force
-
-sudo snap install code-insiders --classic
-code-insiders --install-extension ms-vscode.csharp --force
-code-insiders --install-extension ms-vscode-remote.remote-containers --force
-code-insiders --install-extension dbaeumer.vscode-eslint --force
-code-insiders --install-extension eamodio.gitlens --force
-code-insiders --install-extension mhutchie.git-graph --force
-code-insiders --install-extension ms-azuretools.vscode-docker --force
-code-insiders --install-extension felixfbecker.php-debug --force
 
 sudo snap install slack --classic
 sudo snap install postman
@@ -35,6 +27,8 @@ sudo snap install postman
 echo -e "# \e[92minstall docker. Must use test channel for 19.04\033[0m"
 curl -fsSL get.docker.com | CHANNEL=test sh
 sudo usermod -aG docker $USER
+sudo apt install docker-compose -y
+
 
 echo -e "# \e[92minstall gitkraken and gimp\033[0m"
 sudo snap install gitkraken
