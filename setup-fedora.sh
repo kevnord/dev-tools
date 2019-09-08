@@ -2,13 +2,14 @@
 sudo dnf update -y
 
 # Setup Git
+sudo dnf install git-all -y
 git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
 
 # Install software
 sudo dnf install fedora-workstation-repositories -y # 3rd party repos
 sudo dnf install xclip -y
-sudo dnf install nano -yssss
+sudo dnf install nano -y
 sudo dnf install gnome-tweak-tool -y
 
 # Install Chrome
@@ -63,3 +64,5 @@ sudo snap install postman
 
 # Install Snap Store
 sudo snap install snap-store
+
+  
