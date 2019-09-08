@@ -55,6 +55,7 @@ sudo dnf config-manager \
 
 sudo dnf install docker-ce docker-ce-cli containerd.io -y
 sudo usermod -aG docker $USER
+sudo systemctl start docker
 
 # Install Docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
