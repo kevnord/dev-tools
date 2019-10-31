@@ -64,9 +64,11 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # Install Dotnet 2.2
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.com/config/fedora/27/prod.repo
-sudo dnf update
+sudo wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.com/config/fedora/30/prod.repo
+
+sudo dnf update -y
 sudo dnf install dotnet-sdk-2.2 -y
+sudo dnf install dotnet-sdk-3.0 -y
 
 # Install Gitkraken
 wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
