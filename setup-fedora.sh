@@ -88,7 +88,7 @@ sudo snap install snap-store
 # Install Google Cloud SDK
 sudo dnf install python3 -y
 sudo curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-269.0.0-linux-x86_64.tar.gz
-sudo tar zxvf google-cloud-sdk-269.0.0-linux-x86_64.tar.gz google-cloud-sdk
+sudo tar zxvf google-cloud-sdk-269.0.0-linux-x86_64.tar.gz ~/google-cloud-sdk
 sudo rm google-cloud-sdk-269.0.0-linux-x86_64.tar.gz
-./google-cloud-sdk/install.sh --quiet
-
+~/google-cloud-sdk/install.sh --quiet
+~/google-cloud-sdk/bin/gcloud components install kubectl --quiet
