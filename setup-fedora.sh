@@ -85,7 +85,29 @@ sudo snap install postman
 # Install Snap Store
 sudo snap install snap-store
 
+# Customize command prompt
+if ! grep -q "parse_git_branch()" ~/.bashrc; then
+    echo -e "# \e[92mAdd branch to prompt when in git folders\033[0m"
+    echo "# Add branch name to prompt" >> ~/.bashrc
+    echo "parse_git_branch() {"  >> ~/.bashrc
+    echo "   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'" >> ~/.bashrc
+    echo "}" >> ~/.bashrc
+    echo "export PS1='\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ '" >> ~/.bashrc
+fi
+
+# Loop through ssh keys and add them
+
+echo -e "# \e[92mAll all ssh keys to agent\033[0m" 
+chmod 700 ~/.ssh/*chmod 700 ~/.ssh/*
+chmod 644 ~/.ssh/*.pub
+for possiblekey in ${HOME}/.ssh/*; do
+    if grep -q PRIVATE "$possiblekey"; then
+        ssh-add "$possiblekey"
+    fi
+done
+
 # Install Google Cloud SDK
+
 sudo dnf install python3 -y
 sudo curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-269.0.0-linux-x86_64.tar.gz
 sudo tar zxvf google-cloud-sdk-269.0.0-linux-x86_64.tar.gz ~/google-cloud-sdk
