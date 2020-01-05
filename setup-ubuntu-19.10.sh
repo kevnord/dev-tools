@@ -20,6 +20,7 @@ code --install-extension eamodio.gitlens --force
 code --install-extension mhutchie.git-graph --force
 code --install-extension ms-azuretools.vscode-docker --force
 code --install-extension felixfbecker.php-debug --force
+code --install-extension ms-azuretools.vscode-cosmosdb --force
 
 sudo snap install slack --classic
 sudo snap install postman
