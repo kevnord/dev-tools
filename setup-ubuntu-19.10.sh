@@ -24,6 +24,10 @@ code --install-extension felixfbecker.php-debug --force
 sudo snap install slack --classic
 sudo snap install postman
 
+echo -e "# \e[92minstall gitkraken and gimp\033[0m"
+sudo snap install gitkraken
+sudo snap install gimp
+
 echo -e "# \e[92minstall docker. Must use test channel for 19.04\033[0m"
 curl -fsSL get.docker.com | CHANNEL=test sh
 sudo usermod -aG docker $USER
@@ -34,10 +38,12 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 sudo apt install docker-compose -y
 
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+sudo systemctl enable docker
 
-echo -e "# \e[92minstall gitkraken and gimp\033[0m"
-sudo snap install gitkraken
-sudo snap install gimp
+sudo docker run hello-world
 
 echo -e "# \e[92minstall chrome\033[0m" 
 if ! [ -e google-chrome-stable_current_amd64.deb ]
@@ -48,13 +54,15 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo rm google-chrome-stable_current_amd64.deb
 
 echo -e "# \e[92minstall dotnet core\033[0m" 
+
 wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 
-sudo apt-get install apt-transport-https
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.2
-
+sudo apt-get install apt-transport-https -y
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.2 -y
+sudo apt-get install dotnet-sdk-3.1 -y
 
 if ! grep -q "parse_git_branch()" ~/.bashrc; then
     echo -e "# \e[92mAdd branch to prompt when in git folders\033[0m"
@@ -66,7 +74,7 @@ if ! grep -q "parse_git_branch()" ~/.bashrc; then
 fi
 
 echo -e "# \e[92mAll all ssh keys to agent\033[0m" 
-chmod 700 ~/.ssh/*chmod 700 ~/.ssh/*
+chmod 700 ~/.ssh/*
 chmod 644 ~/.ssh/*.pub
 for possiblekey in ${HOME}/.ssh/*; do
     if grep -q PRIVATE "$possiblekey"; then
