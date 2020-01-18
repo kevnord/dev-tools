@@ -22,6 +22,12 @@ code --install-extension ms-azuretools.vscode-docker --force
 code --install-extension felixfbecker.php-debug --force
 code --install-extension ms-azuretools.vscode-cosmosdb --force
 
+wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install azure-functions-core-tools
+
+
 sudo snap install slack --classic
 sudo snap install postman
 
@@ -64,6 +70,7 @@ sudo apt-get install apt-transport-https -y
 sudo apt-get update
 sudo apt-get install dotnet-sdk-2.2 -y
 sudo apt-get install dotnet-sdk-3.1 -y
+sudo dotnet tool install --global dotnet-user-secrets --version 2.2.0
 
 if ! grep -q "parse_git_branch()" ~/.bashrc; then
     echo -e "# \e[92mAdd branch to prompt when in git folders\033[0m"
@@ -82,3 +89,5 @@ for possiblekey in ${HOME}/.ssh/*; do
         ssh-add "$possiblekey"
     fi
 done
+
+
