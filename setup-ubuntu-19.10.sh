@@ -70,6 +70,8 @@ sudo apt-get install apt-transport-https -y
 sudo apt-get update
 sudo apt-get install dotnet-sdk-2.2 -y
 sudo apt-get install dotnet-sdk-3.1 -y
+sudo apt-get install aspnetcore-runtime-3.1 -y
+sudo apt-get install dotnet-runtime-3.1 -y
 sudo dotnet tool install --global dotnet-user-secrets --version 2.2.0
 
 if ! grep -q "parse_git_branch()" ~/.bashrc; then
