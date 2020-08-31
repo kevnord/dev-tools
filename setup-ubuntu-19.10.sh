@@ -83,6 +83,11 @@ if ! grep -q "parse_git_branch()" ~/.bashrc; then
     echo "export PS1='\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ '" >> ~/.bashrc
 fi
 
+if ! grep -q "LS_COLORS=" ~/.bashrc; then
+    echo "LS_COLORS=$LS_COLORS:'di=0;36' ; export LS_COLORS" >> ~/.bashrc
+fi
+
+
 echo -e "# \e[92mAll all ssh keys to agent\033[0m" 
 chmod 700 ~/.ssh/*
 chmod 644 ~/.ssh/*.pub
