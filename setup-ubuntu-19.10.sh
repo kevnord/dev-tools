@@ -113,4 +113,8 @@ for possiblekey in ${HOME}/.ssh/*; do
     fi
 done
 
+# Other
+
+sudo add-apt-repository ppa:tomtomtom/woeusb
+sudo apt update && sudo apt install woeusb -y
 
