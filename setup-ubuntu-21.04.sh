@@ -5,6 +5,7 @@ echo -e "# \e[92mInstalling and configuring git\033[0m"
 sudo apt install --yes git
 git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
+git config --global pull.rebase false 
 
 echo -e "# \e[92mInstalling Ubuntu tools\033[0m" 
 sudo add-apt-repository universe -y
