@@ -14,6 +14,16 @@ sudo apt-get install xclip -y
 sudo add-apt-repository ppa:tomtomtom/woeusb -y
 sudo apt update && sudo apt install woeusb -y
 sudo apt install curl -y
+sudo apt install dconf-editor -y
+
+# Setup Dash to dock
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 48
+gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items false
+gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.9
+
 
 echo -e "# \e[92mInstalling slack, code, and postman\033[0m"
 sudo snap install code --classic
@@ -86,33 +96,12 @@ echo -e "# \e[92minstall dotnet core\033[0m"
 wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-5.0
-
-# sudo apt-get update
-# sudo apt-get install apt-transport-https -y
-# sudo apt-get update
-# sudo apt-get install dotnet-sdk-2.2 -y
-# sudo apt-get install dotnet-sdk-3.1 -y
-# sudo apt-get install aspnetcore-runtime-3.1 -y
-# sudo apt-get install dotnet-runtime-3.1 -y
-sudo dotnet tool install --global dotnet-user-secrets --version 2.2.0
-
-# 5.0
-wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-5.0
-
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y aspnetcore-runtime-5.0
+sudo apt-get update;
+sudo apt-get install apt-transport-https -y
+sudo apt-get update
+sudo apt-get install dotnet-sdk-3.1 -y
+sudo apt-get install dotnet-sdk-5.0 -y
+sudo dotnet tool install --global dotnet-user-secrets
 
 # Git
 
