@@ -83,6 +83,16 @@ sudo systemctl enable docker
 
 sudo docker run hello-world
 
+echo -e "# \e[92minstall mongo compass\033[0m" 
+if ! [ -e https://downloads.mongodb.com/compass/mongodb-compass_1.26.1_amd64.deb ]
+then
+    sudo wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.1_amd64.deb
+fi
+sudo dpkg -i mongodb-compass_1.26.1_amd64.deb
+sudo rm mongodb-compass_1.26.1_amd64.deb
+
+
+
 echo -e "# \e[92minstall chrome\033[0m" 
 if ! [ -e google-chrome-stable_current_amd64.deb ]
 then
