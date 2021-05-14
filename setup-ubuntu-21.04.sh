@@ -15,6 +15,7 @@ sudo add-apt-repository ppa:tomtomtom/woeusb -y
 sudo apt update && sudo apt install woeusb -y
 sudo apt install curl -y
 sudo apt install dconf-editor -y
+sudo apt install gulp -y	
 
 # Setup Dash to dock
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -90,8 +91,6 @@ then
 fi
 sudo dpkg -i mongodb-compass_1.26.1_amd64.deb
 sudo rm mongodb-compass_1.26.1_amd64.deb
-
-
 
 echo -e "# \e[92minstall chrome\033[0m" 
 if ! [ -e google-chrome-stable_current_amd64.deb ]
