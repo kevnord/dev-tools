@@ -7,18 +7,8 @@ git config --global user.email "kevnord@gmail.com"
 git config --global user.name "Kevin Nord"
 git config --global pull.rebase false 
 
-echo -e "# \e[92mInstalling Ubuntu tools\033[0m" 
-sudo add-apt-repository universe -y
-sudo apt install gnome-tweak-tool -y
-sudo apt-get install xclip -y
-sudo add-apt-repository ppa:tomtomtom/woeusb -y
-sudo apt update && sudo apt install woeusb -y
-sudo apt install curl -y
-sudo apt install dconf-editor -y
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh
+echo -e "# \e[92mInstalling Ubuntu tools\033[0m" sudo add-apt-repository universe -y sudo apt install gnome-tweak-tool -y sudo apt-get install xclip -y sudo add-apt-repository ppa:tomtomtom/woeusb -y 
+sudo apt update && sudo apt install woeusb -y sudo apt install curl -y sudo apt install dconf-editor -y sudo apt install gulp -y
 
 # Setup Dash to dock
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
